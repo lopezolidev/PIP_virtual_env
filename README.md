@@ -1,6 +1,17 @@
 # PIP_virtual_env
 A brief educational repository about the use of PIP and handling virtual environments 
 
+# Steps 
+
+## Game project
+
+- A classic game of rock, paper, scissors made in python.
+- To run this game in your terminal type the following:
+```sh
+$ cd game
+$ python3 rps.py
+```
+
 # What is PIP?
 - **PIP** stands for _Python Package Manager_. Therefore allows you to install/uninstall, and manage python modules and packages. That means that _acts_ through python. Therefore we'll have to install it through python.
 - Also, we can access python directly in the terminal using this command:
