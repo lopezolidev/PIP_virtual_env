@@ -12,6 +12,21 @@ $ cd game
 $ python3 rps.py
 ```
 
+## Country Pupulation/Data App project
+- This simlpe app makes use of matplotlib and other libraries to create a png image about a typed country population.
+- Type the following commands:
+```sh
+$ git clone git@github.com:lopezolidev/PIP_virtual_env.git
+$ cd app
+$ python3 -m venv env
+$ source env/bin/activate
+$ pip3 install -r requirements.txt
+$ python3 main.py
+```
+- The program will ask you to type a country in english language. Then a bar chart png image of the population of the decades from 1970 to 2020 will appear in the 'imgs' directory.
+- Also the program will output the data in a dictonary format of the typed country.
+
+
 # What is PIP?
 - **PIP** stands for _Python Package Manager_. Therefore allows you to install/uninstall, and manage python modules and packages. That means that _acts_ through python. Therefore we'll have to install it through python.
 - Also, we can access python directly in the terminal using this command:
