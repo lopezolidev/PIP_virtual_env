@@ -62,6 +62,50 @@ services:
 ```
 - the vital part is in the last 2 lines. 'volumes:' indicates specific files to capture during activation process and pointing '.:/app' reffers to make the live change in any file of our current directory into the directory of the docker working directory
  
+## How do we run the same docker virtualization in the web-server app?
+- The dockerfile and docker-compose-yml are already in web-server directory.
+- The difference in the dockerfile are the following in the last lines:
+```dockerfile
+FROM python:3.11.2
+
+WORKDIR /app
+COPY requirements.txt /app/requirements.txt
+
+RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
+
+COPY . /app
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
+```
+- In this last line we send as instructions the server, location of the files for execution, and the ports to take place the connection.
+- And this is the docker-compose.yml:
+```yml
+services:
+  web-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+    - .:/app
+    ports:
+    - '80:80'
+```
+- The main difference aside from the name of the service is including the ports, therfore connecting our port '80' to the container port '80'
+- then we would only need to run the following commands:
+```sh
+# create the container
+$ docker compose build
+
+# activate the container
+$ docker compose up -d
+
+# check status of our container so as our ports
+$ docker compose ps
+
+# then connect to localhost to verify connection seeing the displayed page
+```
+
+
 # What is PIP?
 - **PIP** stands for _Python Package Manager_. Therefore allows you to install/uninstall, and manage python modules and packages. That means that _acts_ through python. Therefore we'll have to install it through python.
 - Also, we can access python directly in the terminal using this command:
