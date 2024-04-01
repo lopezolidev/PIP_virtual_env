@@ -13,6 +13,7 @@ def get_contact():
     return """
     <h1>hello I'm a website</h1>
     <p>And I'm a paragraph</p>
+    <p>This paragraph came from Docker!</p>
     """
 
 def run():
